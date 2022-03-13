@@ -5,7 +5,10 @@ import { getCurrentExchangeRates } from '../../API/requests';
 export default function Header() {
   const [ExchangeRates, setExchangeRates] = useState({});
   useEffect(() => {
-    getCurrentExchangeRates().then(res => setExchangeRates(res));
+    const asyncShell = async () => {
+      await getCurrentExchangeRates().then(res => setExchangeRates(res));
+    };
+    asyncShell();
   }, []);
   // console.log('ex: ', ExchangeRates);
   return (

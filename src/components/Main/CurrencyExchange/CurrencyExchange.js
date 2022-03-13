@@ -25,10 +25,8 @@ export default function CurrencyExchange() {
   useEffect(() => {
     switch (action) {
       case 'from':
-        current == 1
-          ? setValueTo(1)
-          : setValueFrom((current * valueFrom).toFixed(2));
-        console.log('done');
+        setValueTo((current / valueFrom).toFixed(2));
+        // console.log('done');
         // console.log('valueFrom: ', valueFrom);
         break;
 

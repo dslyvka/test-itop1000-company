@@ -16,5 +16,5 @@ export const getCurrentExchangeRates = async () => {
     .then(res => res.json())
     .then(res => res.result);
 
-  return Promise.all([USD, EUR]);
+  return { USD, EUR };
 };
