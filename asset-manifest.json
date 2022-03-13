@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/test-itop1000-company/static/css/main.0806b7ee.css",
-    "main.js": "/test-itop1000-company/static/js/main.95865a33.js",
+    "main.js": "/test-itop1000-company/static/js/main.fde91e9f.js",
     "index.html": "/test-itop1000-company/index.html",
     "main.0806b7ee.css.map": "/test-itop1000-company/static/css/main.0806b7ee.css.map",
-    "main.95865a33.js.map": "/test-itop1000-company/static/js/main.95865a33.js.map"
+    "main.fde91e9f.js.map": "/test-itop1000-company/static/js/main.fde91e9f.js.map"
   },
   "entrypoints": [
     "static/css/main.0806b7ee.css",
-    "static/js/main.95865a33.js"
+    "static/js/main.fde91e9f.js"
   ]
 }
