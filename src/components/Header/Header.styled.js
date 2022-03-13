@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 
 export const HeaderStyled = styled.header`
+  @media screen and (max-width: 480px) {
+    width: 150%;
+  }
   padding: 0 15px;
   a:visited {
     color: #a3d5ff;
@@ -40,6 +43,19 @@ export const HeaderStyled = styled.header`
     color: #000;
     padding: 0;
     margin-left: 15px;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin: 0 auto;
+    }
+
+    li:last-child {
+      margin-left: 5px;
+    }
   }
 
   ul:before,

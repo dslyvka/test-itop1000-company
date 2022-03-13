@@ -6,6 +6,11 @@ export const MainStyled = styled.main`
     color: #83c9f4;
     transition: all 500ms cubic-bezier(0.2, 0, 0, 1);
     padding: 15px;
+
+    @media screen and (max-width: 480px) {
+      font-size: 25px;
+      width: 100%;
+    }
   }
 
   h1:hover {
@@ -18,6 +23,13 @@ export const MainStyled = styled.main`
     align-items: center;
 
     padding: 0 300px;
+
+    @media screen and (max-width: 480px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 30px;
+    }
 
     label {
       display: flex;
@@ -41,9 +53,21 @@ export const MainStyled = styled.main`
         border-radius: 4px;
       }
 
+      label {
+        @media screen and (max-width: 480px) {
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+        }
+      }
+
       input {
         width: 200px;
         height: 30px;
+
+        @media screen and (max-width: 480px) {
+          width: 100px;
+          height: 30px;
+        }
 
         border-color: #83c9f4;
 
