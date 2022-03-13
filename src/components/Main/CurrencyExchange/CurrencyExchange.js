@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 
 import { convert } from '../../../API/requests';
 
+import { MainStyled } from './CurrencyExchange.styled';
+import doubleArrow from './double-arrow-png-icon-715343.png';
+
 export default function CurrencyExchange() {
   const [from, setFrom] = useState('USD'); // from currency
   const [to, setTo] = useState('UAH'); // to currency
@@ -98,11 +101,11 @@ export default function CurrencyExchange() {
 
   return (
     <>
-      <main>
+      <MainStyled>
         <h1>Currency Exchange</h1>
         <form action="">
           <label htmlFor="">
-            Convert from
+            <b> Convert from</b>
             <select name="" id="" onChange={onSelectChange} data-action="from">
               <option value="USD">USD $</option>
               <option value="EUR">EUR &euro;</option>
@@ -116,9 +119,9 @@ export default function CurrencyExchange() {
               value={valueFrom}
             />
           </label>
-
+          {/* <img src={doubleArrow} alt="double arrows" width={150}></img> */}
           <label htmlFor="">
-            Convert to
+            <b>Convert to</b>
             <select name="" id="" onChange={onSelectChange} data-action="to">
               <option value="UAH">UAH ₴</option>
               <option value="USD">USD $</option>
@@ -133,7 +136,7 @@ export default function CurrencyExchange() {
             />
           </label>
         </form>
-      </main>
+      </MainStyled>
     </>
   );
 }
