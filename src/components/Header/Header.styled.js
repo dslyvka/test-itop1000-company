@@ -53,8 +53,10 @@ export const HeaderStyled = styled.header`
       margin: 0 auto;
     }
 
-    li:last-child {
-      margin-left: 5px;
+    @media screen and (max-width: 480px) {
+      li:last-child {
+        margin-left: 5px;
+      }
     }
   }
 
