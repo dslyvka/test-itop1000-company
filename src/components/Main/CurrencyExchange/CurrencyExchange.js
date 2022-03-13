@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { convert } from '../../../API/requests';
 
 import { MainStyled } from './CurrencyExchange.styled';
-import doubleArrow from './double-arrow-png-icon-715343.png';
 
 export default function CurrencyExchange() {
   const [from, setFrom] = useState('USD'); // from currency
