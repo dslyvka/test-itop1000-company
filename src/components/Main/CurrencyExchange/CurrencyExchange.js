@@ -7,14 +7,9 @@ import { MainStyled } from './CurrencyExchange.styled';
 export default function CurrencyExchange() {
   const [from, setFrom] = useState('USD'); // from currency
   const [to, setTo] = useState('UAH'); // to currency
-  const [valueFrom, setValueFrom] = useState(0);
-  const [valueTo, setValueTo] = useState(0);
+  const [valueFrom, setValueFrom] = useState(''); //what currency are we converting from
+  const [valueTo, setValueTo] = useState(''); //what currency are we converting to
   const [current, setCurrent] = useState(0); //current exchange rate
-  const [action, setAction] = useState(''); //
-  console.log(
-    'current: ' + current + ', valueFrom: ' + valueFrom + ', valueTo: ',
-    valueTo,
-  );
 
   useEffect(() => {
     convert(from, to).then(res => setCurrent(res.result.toFixed(2)));
@@ -25,48 +20,20 @@ export default function CurrencyExchange() {
   }, [from, to]);
 
   useEffect(() => {
-    switch (action) {
-      case 'from':
-        setValueTo((current / valueFrom).toFixed(2));
-        // console.log('done');
-        // console.log('valueFrom: ', valueFrom);
-        break;
-
-      case 'to':
-        console.log(action);
-        setValueTo((current * valueFrom).toFixed(2));
-        // console.log('done');
-        // console.log('valueTo: ', valueTo);
-        break;
-
-      default:
-        break;
-    }
+    setValueTo((current * valueFrom).toFixed(2));
   }, [current]);
-
-  //   console.log('valueFrom: ', valueFrom);
-  //   console.log('valueTo: ', valueTo);
 
   const onSelectChange = e => {
     const currency = e.currentTarget.value;
     const action = e.currentTarget.getAttribute('data-action');
 
-    // console.log('action: ', action);
-    // console.log('currency: ', currency);
     switch (action) {
       case 'from':
         setFrom(currency);
-        setAction(action);
-        // setValueFrom((valueTo * current).toFixed(2));
-        console.log('valueFrom: ', valueFrom);
         break;
 
       case 'to':
-        console.log(action);
         setTo(currency);
-        setAction(action);
-        // setValueTo((valueFrom * current).toFixed(2));
-        console.log('valueTo: ', valueTo);
         break;
 
       default:
@@ -75,25 +42,17 @@ export default function CurrencyExchange() {
   };
 
   const onInputFromChange = e => {
-    // const action = e.currentTarget.getAttribute('data-action');
     const value = e.currentTarget.value;
-    // console.log('value: ', typeof value, value);
 
+    if (value <= -1) return;
     setValueFrom(value);
     setValueTo((value * current).toFixed(2));
-
-    // setValueTo(value);
-    // setValueFrom((value / current).toFixed(2));
   };
 
   const onInputToChange = e => {
-    // const action = e.currentTarget.getAttribute('data-action');
     const value = e.currentTarget.value;
-    // console.log('value: ', typeof value, value);
 
-    // setValueFrom(value);
-    // setValueTo((value * current).toFixed(2));
-
+    if (value <= -1) return;
     setValueTo(value);
     setValueFrom((value / current).toFixed(2));
   };
@@ -118,7 +77,6 @@ export default function CurrencyExchange() {
               value={valueFrom}
             />
           </label>
-          {/* <img src={doubleArrow} alt="double arrows" width={150}></img> */}
           <label htmlFor="">
             <b>Convert to</b>
             <select name="" id="" onChange={onSelectChange} data-action="to">
