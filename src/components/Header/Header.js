@@ -16,7 +16,7 @@ export default function Header() {
   return (
     <>
       <HeaderStyled>
-        <a href="/">CE</a>
+        <a href="./index.html">CE</a>
         <ul>
           <li>1 EUR = {ExchangeRates?.EUR ? ExchangeRates.EUR : 0} UAH</li>
           <li>1 USD = {ExchangeRates?.USD ? ExchangeRates.USD : 0} UAH</li>
